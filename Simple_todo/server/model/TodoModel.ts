@@ -3,6 +3,7 @@ import { Schema, model } from "mongoose";
 type todo = {
   todo: string;
   status: boolean;
+  userId: string;
 };
 
 type directory = {
@@ -14,6 +15,7 @@ const todoSchema = new Schema(
   {
     todo: { type: String, require: true },
     status: { type: Boolean, default: false },
+    userId: { type: "ObjectId", ref: "directory" },
   },
   { timestamps: true }
 );
